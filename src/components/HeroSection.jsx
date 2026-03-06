@@ -1,7 +1,14 @@
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, ChevronDown, Award, Building, Globe } from 'lucide-react'
 
 const WHATSAPP_URL = 'https://wa.me/5524999999999?text=Olá! Gostaria de solicitar uma proposta para minha empresa.'
+
+const heroSlides = [
+    { image: '/images/hero-bg-1.png' },
+    { image: '/images/hero-bg-2.png' },
+    { image: '/images/hero-bg-3.png' },
+]
 
 const trustBadges = [
     { icon: Award, label: '28+ anos de experiência' },
@@ -10,6 +17,15 @@ const trustBadges = [
 ]
 
 export default function HeroSection() {
+    const [currentSlide, setCurrentSlide] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+        }, 5000)
+        return () => clearInterval(interval)
+    }, [])
+
     const scrollToServices = (e) => {
         e.preventDefault()
         document.querySelector('#servicos')?.scrollIntoView({ behavior: 'smooth' })
@@ -17,32 +33,43 @@ export default function HeroSection() {
 
     return (
         <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
-            {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-navy" />
+            {/* Background image carousel */}
+            <AnimatePresence mode="wait">
+                {heroSlides.map((slide, index) =>
+                    index === currentSlide ? (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 1.1 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 1.2, ease: 'easeInOut' }}
+                            className="absolute inset-0"
+                        >
+                            <img
+                                src={slide.image}
+                                alt=""
+                                className="absolute inset-0 w-full h-full object-cover"
+                                loading={index === 0 ? 'eager' : 'lazy'}
+                            />
+                        </motion.div>
+                    ) : null
+                )}
+            </AnimatePresence>
 
-            {/* Geometric pattern overlay */}
-            <div className="absolute inset-0 opacity-[0.07]">
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-navy/75" />
+
+            {/* Subtle geometric pattern on top */}
+            <div className="absolute inset-0 opacity-[0.05]">
                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <pattern id="heroGrid" width="60" height="60" patternUnits="userSpaceOnUse">
                             <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#C9A84C" strokeWidth="0.5" />
                         </pattern>
-                        <pattern id="heroDots" width="30" height="30" patternUnits="userSpaceOnUse">
-                            <circle cx="15" cy="15" r="1" fill="#C9A84C" />
-                        </pattern>
                     </defs>
                     <rect width="100%" height="100%" fill="url(#heroGrid)" />
-                    <rect width="100%" height="100%" fill="url(#heroDots)" />
                 </svg>
             </div>
-
-            {/* Decorative shapes */}
-            <div className="absolute top-20 right-10 w-72 h-72 bg-gold/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-10 w-96 h-96 bg-gold/3 rounded-full blur-3xl" />
-
-            {/* Accent lines */}
-            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
-            <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
 
             {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-0 w-full">
@@ -118,15 +145,27 @@ export default function HeroSection() {
                                 <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
                                     <badge.icon className="w-5 h-5 text-gold" />
                                 </div>
-                                <span className="text-white/80 text-sm font-medium">{badge.label}</span>
+                                <span className="text-white/90 text-sm font-medium">{badge.label}</span>
                             </div>
                         ))}
                     </motion.div>
                 </div>
             </div>
 
-            {/* Bottom gradient fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
+            {/* Slide indicators */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+                {heroSlides.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setCurrentSlide(i)}
+                        aria-label={`Ir para slide ${i + 1}`}
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentSlide
+                                ? 'bg-gold w-8'
+                                : 'bg-white/40 hover:bg-white/60'
+                            }`}
+                    />
+                ))}
+            </div>
         </section>
     )
 }
