@@ -1,44 +1,44 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import {
-    BarChart3,
+    Briefcase,
+    Landmark,
+    FileX,
     ShieldCheck,
-    Users,
-    FileText,
-    Receipt,
-    Handshake,
+    Calculator,
+    Tractor,
 } from 'lucide-react'
 
 const services = [
     {
-        icon: BarChart3,
-        title: 'Contabilidade Empresarial',
-        description: 'Escrituração contábil completa, demonstrações financeiras e relatórios gerenciais para embasar suas decisões.',
+        icon: Briefcase,
+        title: 'Legalização de Empresas',
+        description: 'Abertura e legalização de negócios com agilidade, garantindo que sua empresa nasça com total segurança jurídica e conformidade.',
+    },
+    {
+        icon: Landmark,
+        title: 'Entidades Sem Fins Lucrativos',
+        description: 'Assessoria especializada na constituição e legalização de ONGs, associações e igrejas, cuidando de todas as suas particularidades.',
+    },
+    {
+        icon: FileX,
+        title: 'Baixa de Empresas',
+        description: 'Processo completo de encerramento de atividades, liquidando todas as obrigações fiscais e contábeis de forma definitiva.',
     },
     {
         icon: ShieldCheck,
-        title: 'Planejamento Tributário',
-        description: 'Análise do melhor regime tributário e estratégias legais para reduzir a carga fiscal da sua empresa.',
+        title: 'Regularização de Inaptas',
+        description: 'Diagnóstico e resolução de pendências para reativar CNPJs inaptos perante a Receita Federal e demais órgãos ambientais e fiscais.',
     },
     {
-        icon: Users,
-        title: 'Departamento Pessoal & Folha de Pagamento',
-        description: 'Gestão completa de folha, encargos, e-Social e todas as obrigações trabalhistas.',
+        icon: Calculator,
+        title: 'Escrituração Contábil',
+        description: 'Atendimento e gestão para Lucro Real, Presumido, Arbitrado, Simples Nacional, MEI, além de entidades Isentas e Imunes.',
     },
     {
-        icon: FileText,
-        title: 'Abertura e Encerramento de Empresas',
-        description: 'Acompanhamento integral desde a constituição até o encerramento, com segurança jurídica.',
-    },
-    {
-        icon: Receipt,
-        title: 'Escrituração Fiscal',
-        description: 'Apuração de impostos, emissão de guias e entrega de obrigações acessórias dentro dos prazos.',
-    },
-    {
-        icon: Handshake,
-        title: 'Consultoria Contábil e Financeira',
-        description: 'Orientação estratégica para otimizar a saúde financeira e o crescimento sustentável do seu negócio.',
+        icon: Tractor,
+        title: 'Produtor Rural & ITR',
+        description: 'Assessoria para o agronegócio, incluindo o Cadastramento de Produtor Rural e a declaração anual do ITR.',
     },
 ]
 
