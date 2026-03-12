@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { MapPin, Phone, Mail, MessageCircle, Send, Building2 } from 'lucide-react'
 
-const WHATSAPP_URL = 'https://wa.me/5524999999999?text=Olá! Gostaria de solicitar uma proposta para minha empresa.'
+const WHATSAPP_URL = 'https://wa.me/5524993100692?text=Olá! Gostaria de solicitar uma proposta para minha empresa.'
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -28,7 +28,7 @@ export default function ContactSection() {
         e.preventDefault()
         // Build WhatsApp message with form data
         const msg = `Olá! Gostaria de solicitar uma proposta.\n\n*Empresa:* ${formData.empresa}\n*CNPJ:* ${formData.cnpj}\n*Segmento:* ${formData.segmento}\n*Mensagem:* ${formData.mensagem}`
-        const url = `https://wa.me/5524999999999?text=${encodeURIComponent(msg)}`
+        const url = `https://wa.me/5524993100692?text=${encodeURIComponent(msg)}`
         window.open(url, '_blank')
         setSubmitted(true)
         setTimeout(() => setSubmitted(false), 3000)
@@ -82,8 +82,9 @@ export default function ContactSection() {
                                     <Phone className="w-6 h-6 text-gold" />
                                 </div>
                                 <div>
-                                    <h4 className="text-navy font-bold mb-1">Telefone</h4>
-                                    <p className="text-gray-500 text-sm">(24) 9999-9999</p>
+                                    <h4 className="text-navy font-bold mb-1">Telefones</h4>
+                                    <p className="text-gray-500 text-sm">(24) 99310-0692</p>
+                                    <p className="text-gray-500 text-sm">(24) 99997-3021</p>
                                 </div>
                             </div>
 

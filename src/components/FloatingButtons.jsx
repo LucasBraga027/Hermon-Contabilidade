@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ArrowUp } from 'lucide-react'
 
-const WHATSAPP_URL = 'https://wa.me/5524999999999?text=Olá! Gostaria de solicitar uma proposta para minha empresa.'
+const WHATSAPP_URL = 'https://wa.me/5524993100692?text=Olá! Gostaria de solicitar uma proposta para minha empresa.'
 
 function WhatsAppIcon({ className }) {
     return (

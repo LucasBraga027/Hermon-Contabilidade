@@ -63,7 +63,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <span className="text-white/60 font-medium">CRC/RJ:</span>{' '}
-                                XXXXXX
+                                082048/O4
                             </li>
                             <li>Barra do Piraí – RJ</li>
                         </ul>
