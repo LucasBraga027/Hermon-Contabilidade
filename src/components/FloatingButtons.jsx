@@ -37,14 +37,14 @@ export default function FloatingButtons() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Falar pelo WhatsApp"
-                className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-whatsapp rounded-full flex items-center justify-center shadow-lg shadow-whatsapp/30 hover:shadow-xl hover:shadow-whatsapp/40 hover:scale-110 transition-all duration-300 group"
+                className="fixed bottom-6 right-6 z-[60] w-14 h-14 bg-whatsapp rounded-full flex items-center justify-center shadow-lg shadow-whatsapp/30 hover:shadow-xl hover:shadow-whatsapp/40 hover:scale-110 transition-all duration-300 group"
             >
                 <WhatsAppIcon className="w-8 h-8 text-white" />
                 {/* Pulse ring */}
                 <span className="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-20" />
 
                 {/* Tooltip — positioned above the button so it never gets covered */}
-                <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-navy text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-lg">
+                <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-navy text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-lg z-[60]">
                     Fale conosco!
                     <span className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-navy" />
                 </span>
