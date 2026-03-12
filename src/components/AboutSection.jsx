@@ -66,10 +66,10 @@ export default function AboutSection() {
                         custom={1}
                     >
                         <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                            Fundada em dezembro de 1998 em <strong className="text-navy">Barra do Piraí</strong>, no coração do Sul Fluminense, a Hebron Contabilidade nasceu da convicção de que empresas merecem uma contabilidade que vai além dos números.
+                            Fundada em dezembro de 1998 em <strong className="text-navy">Barra do Piraí</strong>, no coração do Sul Fluminense, a Hermon Contabilidade nasceu da convicção de que empresas merecem uma contabilidade que vai além dos números.
                         </p>
                         <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                            Com raízes bíblicas que remetem a <em className="text-navy font-medium">aliança, pacto e força</em>, o nome Hebron reflete nosso compromisso fundamental: construir relações duradouras e confiáveis com cada cliente. São mais de <strong className="text-navy">28 anos de experiência</strong> atendendo empresas de diversos segmentos e portes.
+                            Com raízes bíblicas que remetem a <em className="text-navy font-medium">aliança, pacto e força</em>, o nome Hermon reflete nosso compromisso fundamental: construir relações duradouras e confiáveis com cada cliente. São mais de <strong className="text-navy">28 anos de experiência</strong> atendendo empresas de diversos segmentos e portes.
                         </p>
 
                         {/* PJ-exclusive callout */}

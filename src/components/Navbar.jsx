@@ -47,7 +47,7 @@ export default function Navbar() {
                         href="#inicio"
                         onClick={(e) => handleLinkClick(e, '#inicio')}
                         className="flex items-center gap-2.5 group"
-                        aria-label="Hebron Contabilidade - Página inicial"
+                        aria-label="Hermon Contabilidade - Página inicial"
                     >
                         <div className="w-9 h-9 bg-navy rounded-lg flex items-center justify-center group-hover:bg-navy-light transition-colors">
                             <Building2 className="w-5 h-5 text-gold" />
@@ -55,7 +55,7 @@ export default function Navbar() {
                         <div className="flex flex-col">
                             <span className={`text-lg font-bold leading-tight tracking-tight transition-colors ${scrolled ? 'text-navy' : 'text-white'
                                 }`}>
-                                Hebron
+                                Hermon
                             </span>
                             <span className={`text-[10px] font-medium uppercase tracking-widest leading-none transition-colors ${scrolled ? 'text-gold-dark' : 'text-gold'
                                 }`}>

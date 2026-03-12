@@ -71,7 +71,7 @@ export default function DifferentialsSection() {
                 >
                     <span className="text-gold font-semibold text-sm uppercase tracking-wider">Diferenciais</span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">
-                        Por que escolher a Hebron?
+                        Por que escolher a Hermon?
                     </h2>
                     <p className="text-white/50 text-lg max-w-2xl mx-auto">
                         Combinamos tradição e inovação para oferecer uma experiência contábil de excelência.

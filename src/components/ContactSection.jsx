@@ -120,7 +120,7 @@ export default function ContactSection() {
                                 allowFullScreen=""
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                title="Localização Hebron Contabilidade"
+                                title="Localização Hermon Contabilidade"
                                 className="grayscale hover:grayscale-0 transition-all duration-500"
                             />
                         </div>

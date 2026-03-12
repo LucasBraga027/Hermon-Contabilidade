@@ -24,7 +24,7 @@ export default function Footer() {
                                 <Building2 className="w-5 h-5 text-gold" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-lg font-bold leading-tight text-white">Hebron</span>
+                                <span className="text-lg font-bold leading-tight text-white">Hermon</span>
                                 <span className="text-[10px] font-medium uppercase tracking-widest text-gold leading-none">
                                     Contabilidade
                                 </span>
@@ -73,7 +73,7 @@ export default function Footer() {
                 {/* Bottom bar */}
                 <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-white/30 text-xs text-center md:text-left">
-                        © 2026 Hebron Contabilidade. Todos os direitos reservados.
+                        © 2026 Hermon Contabilidade. Todos os direitos reservados.
                     </p>
                     <p className="text-white/30 text-xs text-center md:text-right">
                         Atendemos exclusivamente Pessoas Jurídicas (CNPJ)
