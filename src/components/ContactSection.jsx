@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { MapPin, Phone, Mail, MessageCircle, Send, Building2 } from 'lucide-react'
+import { MapPin, Phone, Mail, MessageCircle, Send, Building2, AlertCircle } from 'lucide-react'
 
 const WHATSAPP_URL = 'https://wa.me/5524993100692?text=Olá! Gostaria de solicitar uma proposta para minha empresa.'
 
@@ -22,11 +22,56 @@ export default function ContactSection() {
         segmento: '',
         mensagem: '',
     })
+    const [cnpjError, setCnpjError] = useState('')
     const [submitted, setSubmitted] = useState(false)
+
+    // Aplica a máscara XX.XXX.XXX/XXXX-XX
+    const maskCnpj = (value) => {
+        const d = value.replace(/\D/g, '').slice(0, 14)
+        if (d.length <= 2)  return d
+        if (d.length <= 5)  return `${d.slice(0,2)}.${d.slice(2)}`
+        if (d.length <= 8)  return `${d.slice(0,2)}.${d.slice(2,5)}.${d.slice(5)}`
+        if (d.length <= 12) return `${d.slice(0,2)}.${d.slice(2,5)}.${d.slice(5,8)}/${d.slice(8)}`
+        return `${d.slice(0,2)}.${d.slice(2,5)}.${d.slice(5,8)}/${d.slice(8,12)}-${d.slice(12)}`
+    }
+
+    // Validação aritmética dos dígitos verificadores
+    const isValidCnpj = (cnpj) => {
+        const digits = cnpj.replace(/\D/g, '')
+        if (digits.length !== 14) return false
+        if (/^(\d)\1{13}$/.test(digits)) return false
+        const calc = (d, len) => {
+            let sum = 0
+            let pos = len - 7
+            for (let i = len; i >= 1; i--) {
+                sum += parseInt(d[len - i]) * pos--
+                if (pos < 2) pos = 9
+            }
+            const r = sum % 11 < 2 ? 0 : 11 - (sum % 11)
+            return r === parseInt(d[len])
+        }
+        return calc(digits, 12) && calc(digits, 13)
+    }
+
+    const handleCnpjChange = (e) => {
+        const masked = maskCnpj(e.target.value)
+        setFormData({ ...formData, cnpj: masked })
+        const digits = masked.replace(/\D/g, '')
+        if (digits.length === 14) {
+            setCnpjError(isValidCnpj(masked) ? '' : 'CNPJ inválido. Verifique os números e tente novamente.')
+        } else {
+            setCnpjError('')
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // Build WhatsApp message with form data
+        // Bloqueia envio se CNPJ preenchido mas inválido
+        const digits = formData.cnpj.replace(/\D/g, '')
+        if (digits.length > 0 && !isValidCnpj(formData.cnpj)) {
+            setCnpjError('CNPJ inválido. Verifique os números e tente novamente.')
+            return
+        }
         const msg = `Olá! Gostaria de solicitar uma proposta.\n\n*Empresa:* ${formData.empresa}\n*CNPJ:* ${formData.cnpj}\n*Segmento:* ${formData.segmento}\n*Mensagem:* ${formData.mensagem}`
         const url = `https://wa.me/5524993100692?text=${encodeURIComponent(msg)}`
         window.open(url, '_blank')
@@ -168,10 +213,21 @@ export default function ContactSection() {
                                         type="text"
                                         id="cnpj"
                                         value={formData.cnpj}
-                                        onChange={(e) => setFormData({ ...formData, cnpj: e.target.value })}
-                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy text-sm placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-all"
+                                        onChange={handleCnpjChange}
+                                        className={`w-full px-4 py-3 bg-white border rounded-xl text-navy text-sm placeholder:text-gray-300 focus:outline-none focus:ring-2 transition-all ${
+                                            cnpjError
+                                                ? 'border-red-400 focus:ring-red-300 focus:border-red-400'
+                                                : 'border-gray-200 focus:ring-gold/50 focus:border-gold'
+                                        }`}
                                         placeholder="00.000.000/0000-00"
+                                        maxLength={18}
+                                        inputMode="numeric"
                                     />
+                                    {cnpjError && (
+                                        <p className="mt-1.5 text-red-500 text-xs flex items-center gap-1">
+                                            <AlertCircle className="w-3.5 h-3.5 shrink-0" /> {cnpjError}
+                                        </p>
+                                    )}
                                 </div>
 
                                 <div>
@@ -224,3 +280,8 @@ export default function ContactSection() {
         </section>
     )
 }
+
+
+
+
+
