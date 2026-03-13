@@ -160,7 +160,7 @@ export default function RegionalSection() {
                             <div className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                                 <p className="text-gray-600 text-sm leading-relaxed">
-                                    Seja você de <strong className="text-navy">Barra do Piraí, Volta Redonda, Barra Mansa</strong> ou de qualquer outro estado — a Hebron tem a estrutura para atender sua empresa.
+                                    Seja você de <strong className="text-navy">Barra do Piraí, Volta Redonda, Barra Mansa</strong> ou de qualquer outro estado — a Hermon tem a estrutura para atender sua empresa.
                                 </p>
                             </div>
                         </div>

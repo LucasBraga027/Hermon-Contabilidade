@@ -47,7 +47,7 @@ export default function HeroSection() {
                         >
                             <img
                                 src={slide.image}
-                                alt=""
+                                alt={`Hermon Contabilidade - Atendimento estratégico para empresas - Slide ${index + 1}`}
                                 className="absolute inset-0 w-full h-full object-cover"
                                 loading={index === 0 ? 'eager' : 'lazy'}
                             />
@@ -94,7 +94,7 @@ export default function HeroSection() {
                         transition={{ duration: 0.7, delay: 0.1 }}
                         className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-6"
                     >
-                        Sua empresa em
+                        Contabilidade em
                         <span className="text-gold"> mãos experientes</span>
                         {' '}há mais de 28 anos
                     </motion.h1>
