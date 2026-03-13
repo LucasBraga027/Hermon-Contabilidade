@@ -1,4 +1,4 @@
-# Hebron Contabilidade — Website Institucional
+# Hermon Contabilidade — Website Institucional
 
 Website institucional moderno e responsivo para a Hebron Contabilidade, escritório de contabilidade especializado exclusivamente em Pessoas Jurídicas, com base em Barra do Piraí/RJ.
 
@@ -76,4 +76,4 @@ O site é **mobile-first** e otimizado para:
 
 ---
 
-**Hebron Contabilidade** — Contabilidade estratégica para empresas desde 1998.
+**Hermon Contabilidade** — Contabilidade estratégica para empresas desde 1998.
